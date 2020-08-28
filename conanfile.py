@@ -43,7 +43,7 @@ class OpenCVConan(ConanFile):
                "quirc": [True, False]}
     default_options = {"shared": False,
                        "fPIC": True,
-                       "contrib": False,
+                       "contrib": True,
                        "jpeg": True,
                        "jpegturbo": False,
                        "tiff": True,
