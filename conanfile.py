@@ -176,7 +176,7 @@ class OpenCVConan(ConanFile):
             if self.options.freetype:
                 self.requires.add('freetype/2.10.1')
             if self.options.harfbuzz:
-                self.requires.add('harfbuzz/2.4.0@bincrafters/stable')
+                self.requires.add('harfbuzz/2.6.8')
             if self.options.glog:
                 self.requires.add('glog/0.4.0')
             if self.options.gflags:
