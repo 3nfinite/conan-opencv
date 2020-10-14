@@ -50,7 +50,7 @@ class OpenCVConan(ConanFile):
                        "webp": True,
                        "png": True,
                        "jpeg2000": "openjpeg",
-                       "openexr": True,
+                       "openexr": False,
                        "gtk": None,
                        "nonfree": False,
                        "dc1394": True,
@@ -174,7 +174,7 @@ class OpenCVConan(ConanFile):
             self.requires.add('lapack/3.7.1@conan/stable')
         if self.options.contrib:
             if self.options.freetype:
-                self.requires.add('freetype/2.10.1')
+                self.requires.add('freetype/2.10.2')
             if self.options.harfbuzz:
                 self.requires.add('harfbuzz/2.6.8')
             if self.options.glog:
