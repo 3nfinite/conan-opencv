@@ -50,24 +50,24 @@ class OpenCVConan(ConanFile):
                        "webp": True,
                        "png": True,
                        "jpeg2000": "openjpeg",
-                       "openexr": False,
+                       "openexr": True,
                        "gtk": None,
                        "nonfree": False,
-                       "dc1394": True,
+                       "dc1394": False,
                        "carotene": False,
-                       "cuda": False,
+                       "cuda": True,
                        "protobuf": True,
-                       "freetype": True,
-                       "harfbuzz": True,
+                       "freetype": False,
+                       "harfbuzz": False,
                        "eigen": True,
-                       'glog': True,
-                       "gflags": True,
+                       'glog': False,
+                       "gflags": False,
                        "gstreamer": False,
                        "openblas": False,
                        "ffmpeg": False,
                        "lapack": False,
                        "parallel": None,
-                       "quirc": True}
+                       "quirc": False}
     exports_sources = ["CMakeLists.txt", "patches/*.patch"]
     exports = "LICENSE"
     generators = "cmake"
@@ -156,7 +156,7 @@ class OpenCVConan(ConanFile):
             self.options["jasper"].jpegturbo = self.options.jpegturbo
         if not tools.cross_building(self.settings) and self.options.openexr:
             # OpenEXR currently doesn't support cross-building
-            self.requires.add('openexr/2.3.0')
+            self.requires.add('openexr/2.5.2')
         if self.options.protobuf:
             # NOTE : version should be the same as used in OpenCV release,
             # otherwise, PROTOBUF_UPDATE_FILES should be set to re-generate files
@@ -174,9 +174,9 @@ class OpenCVConan(ConanFile):
             self.requires.add('lapack/3.7.1@conan/stable')
         if self.options.contrib:
             if self.options.freetype:
-                self.requires.add('freetype/2.10.2')
+                self.requires.add('freetype/2.10.1')
             if self.options.harfbuzz:
-                self.requires.add('harfbuzz/2.6.8')
+                self.requires.add('harfbuzz/2.4.0@bincrafters/stable')
             if self.options.glog:
                 self.requires.add('glog/0.4.0')
             if self.options.gflags:
